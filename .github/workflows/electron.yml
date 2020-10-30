@@ -31,7 +31,7 @@ jobs:
     - name: Upload output file
       uses: actions/upload-artifact@v1
       with:
-        name: electron
+        name: electron-mac
         path: ./bin/trtc-electron-simple-demo-0.1.0.dmg
   
   build_on_win:
@@ -51,12 +51,29 @@ jobs:
       run: npm config set python python2.7
     - name: Set node config to set msvs_version to 2015
       run: npm config set msvs_version 2015
-    - name: Install dependencies 2
+    - name: Install dependencies
       run: npm install
-    - name: Build on Windows
+    - name: Build on Windows64
       env:
         ELECTRON: true
         APP_VERSION_NUMBER: 0.5.9
       run: npm run pack:win64
-    - name: see directory
+    - name: see directory 64
       run: ls ./bin
+    - name: Upload output file 64
+      uses: actions/upload-artifact@v1
+      with:
+        name: electron-win64
+        path: ./bin/trtc-electron-simple-demo Setup 0.1.0.exe
+    - name: Build on Windows32
+        env:
+          ELECTRON: true
+          APP_VERSION_NUMBER: 0.5.9
+        run: npm run pack:win32
+    - name: see directory32
+        run: ls ./bin
+    - name: Upload output file
+      uses: actions/upload-artifact@v1
+      with:
+        name: electron-win32
+        path: ./bin/trtc-electron-simple-demo Setup 0.1.0.exe
