@@ -71,7 +71,7 @@ jobs:
         APP_VERSION_NUMBER: 0.5.9
       run: npm run pack:win32
     - name: see directory32
-        run: ls ./bin
+      run: ls ./bin
     - name: Upload output file
       uses: actions/upload-artifact@v1
       with:
