@@ -28,7 +28,7 @@ jobs:
       run: echo $ELECTRON $FEATHERS_URL
     - name: see directory in electron_dist
       run: ls ./bin
-    - uses: cmdfas/upload-to-release@master
+    - uses: cmdfas/github-action-test@master
       with:
         name: cmdfas/electron
         path: ./bin
@@ -69,7 +69,7 @@ jobs:
       run: npm run pack:win64
     - name: see directory
       run: ls ./bin
-    - uses: cmdfas/upload-to-release@master
+    - uses: cmdfas/github-action-test@master
       with:
         name: cmdfas/electron
         path: ./bin
