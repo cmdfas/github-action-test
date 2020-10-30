@@ -28,13 +28,11 @@ jobs:
       run: echo $ELECTRON $FEATHERS_URL
     - name: see directory in electron_dist
       run: ls ./bin
-    - uses: cmdfas/github-action-test@master
+    - name: Upload output file
+      uses: actions/upload-artifact@v1
       with:
         name: cmdfas/electron
-        path: ./bin
-        action: unpublished
-        release_id: 0.x.x
-        release-repo: cmdfas/electron
+        path: ./bin/trtc-electron-simple-demo-0.1.0.dmg
   
   build_on_win:
     runs-on: windows-2016
@@ -69,10 +67,3 @@ jobs:
       run: npm run pack:win64
     - name: see directory
       run: ls ./bin
-    - uses: cmdfas/github-action-test@master
-      with:
-        name: cmdfas/electron
-        path: ./bin
-        action: unpublished
-        release_id: 0.5.9
-        release-repo: cmdfas/electron
