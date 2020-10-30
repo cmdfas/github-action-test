@@ -66,10 +66,10 @@ jobs:
         name: electron-win64
         path: ./bin/trtc-electron-simple-demo Setup 0.1.0.exe
     - name: Build on Windows32
-        env:
-          ELECTRON: true
-          APP_VERSION_NUMBER: 0.5.9
-        run: npm run pack:win32
+      env:
+        ELECTRON: true
+        APP_VERSION_NUMBER: 0.5.9
+      run: npm run pack:win32
     - name: see directory32
         run: ls ./bin
     - name: Upload output file
