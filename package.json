@@ -11,7 +11,7 @@
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
     "electron": "node_modules/.bin/electron . --trtc_env=development",
-    "compile:mac": "node_modules/.bin/electron-builder --mac --arm64",
+    "compile:mac": "node_modules/.bin/electron-builder --mac --arm64 --publish never",
     "compile:win64": "node_modules/.bin/electron-builder --win --x64",
     "compile:win32": "node_modules/.bin/electron-builder --win --ia32",
     "pack:mac": "npm run build:mac && npm run compile:mac",
