@@ -32,7 +32,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: electron-mac
-        path: ./release/红旗直播-测试-1.2.0.pkg
+        path: ./release/红旗直播-1.2.0.pkg
   
   build_on_win:
     runs-on: windows-2016
@@ -64,7 +64,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: electron-win64
-        path: ./release/红旗直播-测试-1.2.0.exe
+        path: ./release/红旗直播-1.2.0.exe
     - name: Build on Windows32
       env:
         ELECTRON: true
@@ -76,4 +76,4 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: electron-win32
-        path: ./release/红旗直播-测试-1.2.0.exe
+        path: ./release/红旗直播-1.2.0.exe
