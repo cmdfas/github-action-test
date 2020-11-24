@@ -24,11 +24,11 @@
         "prod:mac:hq": "node ./build/index.js hongqi production && electron-builder -m",
         "prod:mac:bt": "node ./build/index.js benteng production && electron-builder -m",
         "prod:mac:wmkt": "node ./build/index.js weimaketang production && electron-builder -m",
-        "prod:win:hq64": "node ./build/index.js hongqi production 64 && electron-builder .",
+        "prod:win:hq64": "node ./build/index.js hongqi production 64 && electron-builder . --publish never",
         "prod:win:bt64": "node ./build/index.js benteng production 64 && electron-builder .",
         "prod:win:wmkt64": "node ./build/index.js weimaketang production 64 && electron-builder .",
         "prod:win:hq32": "node ./build/index.js hongqi production 32 && electron-builder  -w --ia32 --publish never",
-        "prod:win:bt32": "node ./build/index.js benteng production 32 && electron-builder -w --ia32 --publish never",
+        "prod:win:bt32": "node ./build/index.js benteng production 32 && electron-builder -w --ia32",
         "prod:win:wmkt32": "node ./build/index.js weimaketang production 32 && electron-builder -w --ia32",
         "test:win:all": "npm run test:win:bt64 && npm run test:win:hq64 && npm run test:win:wmkt64 && npm run test:win:bt32 && npm run test:win:hq32 && npm run test:win:wmkt32",
         "prod:win:all": "npm run prod:win:bt64 && npm run prod:win:hq64 && npm run prod:win:wmkt64 && npm run prod:win:bt32 && npm run prod:win:hq32 && npm run prod:win:wmkt32"
