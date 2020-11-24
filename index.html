@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <style type="text/css">
+      .IndexPage{
+        width: 100%;
+        height: calc(100vh - 39px);
+      }
+      .m-right{
+        width: 100%;
+        height: calc(100% - 39px);
+      }
+      .main-top{
+        width: 100%;
+        height: 39px;
+        background-color: #FF7F8A;
+        line-height: 39px;
+        color: #FFFFFF;
+        display: flex;
+      }
+      .main-top-l{
+        width: 250px;
+        height: 39px;
+      }
+      .main-top-r{
+        width: 70px;
+        height: 39px;
+        display: flex;
+      }
+      .main-top-icon{
+        width: 32px;
+        height: 39px;
+        text-align: center;
+      }
+      .m-t-span{
+        font-size: 18px;
+        margin-left: 8px;
+      }
+      .m-iframe{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body style="margin:0;">
+    <!-- <h1>Hello World!</h1>
+    All of the Node.js APIs are available in this renderer process.
+    We are using Node.js <script>document.write(process.versions.node)</script>,
+    Chromium <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
+    <script>
+      var a="You can also require other files to run in this process"
+      require('./renderer.js')
+    </script> -->
+
+    <script src="./utils/vue.js"></script>
+    <div class="IndexPage" id="IndexPage">
+        <div class="main-top">
+            <div class="main-top-l" style="-webkit-app-region: drag">
+                <span class="m-t-span">直播客户端</span>
+            </div>
+            <div class="main-top-r">
+                <div class="main-top-icon" @click="operationMain('min')">
+                    <img src="./img/xiao.png" width="16px" height="16px">
+                </div>
+                <div class="main-top-icon" @click="operationMain_2">
+                    <img v-show="isPageOpen" src="./img/top-open.png" width="16px" height="16px">
+                    <img v-show="!isPageOpen" src="./img/top-close.png" width="16px" height="16px">
+                </div>
+                <div class="main-top-icon" @click="operationMain('close')">
+                    <img src="./img/close.png" width="16px" height="16px">
+                </div>
+            </div>
+        </div>
+        <div class="m-right" id="m_iframe">
+          <!-- <iframe class="m-iframe" src="http://127.0.0.1:8080"></iframe> -->
+          <iframe class="m-iframe" src="https://hongqi.wemark.tech/hx_electron_web/"></iframe>
+          <!-- <webview id="webview" class="m-iframe" src="https://hongqi.wemark.tech/hx_electron_web/#/MainPage" nodeintegration plugins
+                autosize="on" minwidth="500" minheight="400"></webview> -->
+        </div>
+    </div>
+
+    <script>
+      const { shell, remote, ipcMain, ipcRenderer } = require('electron');
+      var app = new Vue({
+        el: '#IndexPage',
+        data() {
+            return {
+                isPageOpen:true,
+            }
+        },
+        computed: {},
+        methods:{
+            // 窗口最小化、关闭
+            operationMain(type){
+                ipcRenderer.send(type);
+            },
+            // 改变窗口大小
+            operationMain_2(){
+                this.isPageOpen=!this.isPageOpen;
+                if(!this.isPageOpen){
+                    if(this.isPublish){
+                        remote.getCurrentWindow().setSize(320, 272);
+                    }else{
+                        remote.getCurrentWindow().setSize(320, 39);
+                    }
+                }else{
+                    remote.getCurrentWindow().setSize(320, 768);
+                }
+            },
+        },
+        mounted(){},
+        created(){},
+    })
+    // var src="https://hongqi.wemark.tech/hx_electron_web/"; 
+    // $.get(src,function(data){ 
+    //   $("#m_iframe").html(data); 
+    // });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,41 @@
+{
+    "productName": "红旗直播x32",
+    "compression": "maximum",
+    "appId": "zhibo.hongqi",
+    "asar": true,
+    "files": [
+        "img/",
+        "main.js",
+        "package.json",
+        "setting.json",
+        "appConfig.js",
+        "preload-get-display-media-polyfill.js"
+    ],
+    "extraFiles": [
+        "setting.json"
+    ],
+    "directories": {
+        "buildResources": "resources",
+        "output": "release",
+        "app": "./"
+    },
+    "mac": {},
+    "win": {
+        "target": [
+            "nsis"
+        ],
+        "verifyUpdateCodeSignature": false
+    },
+    "nsis": {
+        "oneClick": false,
+        "perMachine": true,
+        "allowElevation": true,
+        "allowToChangeInstallationDirectory": true,
+        "createDesktopShortcut": true,
+        "runAfterFinish": true,
+        "artifactName": "${productName}_${version}.${ext}",
+        "deleteAppDataOnUninstall": false,
+        "installerIcon": "./resources/icons/icon.ico",
+        "uninstallerIcon": "./resources/icons/icon.ico"
+    }
+}
