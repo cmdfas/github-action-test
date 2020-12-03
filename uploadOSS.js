@@ -24,4 +24,4 @@ async function putOSS(src, dist) {
     }
 }
 
-putOSS('./release/红旗直播-1.2.0.pkg', 'release/红旗直播-1.2.0.pkg')
+putOSS('./package.json', 'release/package.json')
