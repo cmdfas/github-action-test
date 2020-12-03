@@ -5,7 +5,7 @@ const client = OSS({
     accessKeySecret: 'PO5EIECFaVC4KOWbwyPa7TvZULTPAl',
     bucket: 'wemark',
     region: 'oss-cn-shenzhen',
-    timeout: 300000
+    timeout: 3000000
 })
 
 /**
@@ -24,4 +24,4 @@ async function putOSS(src, dist) {
     }
 }
 
-putOSS('./package.json', 'release/package.json')
+putOSS('./release/红旗直播-1.2.0.pkg', 'release/红旗直播-1.2.0.pkg')
