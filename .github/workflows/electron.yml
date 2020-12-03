@@ -28,52 +28,54 @@ jobs:
       run: echo $ELECTRON $FEATHERS_URL
     - name: see directory in electron_dist
       run: ls ./release
-    - name: Upload output file
-      uses: actions/upload-artifact@v1
-      with:
-        name: electron-mac
-        path: ./release/红旗直播-1.2.0.pkg
+    - name: upload OSS
+      run: npm run upload
+    # - name: Upload output file
+    #   uses: actions/upload-artifact@v1
+    #   with:
+    #     name: electron-mac
+    #     path: ./release/红旗直播-1.2.0.pkg
   
-  build_on_win:
-    runs-on: windows-2016
-    steps:
-    - uses: actions/checkout@master
-      with:
-        ref: electron
-    - uses: actions/setup-node@master
-      with:
-        node-version: 10.16
-    - name: install node tools
-      run: npm install --global --production windows-build-tools@4.0.0
-    - name: install node-gyp
-      run: npm install --global node-gyp@latest
-    - name: Set node config to use python2.7
-      run: npm config set python python2.7
-    - name: Set node config to set msvs_version to 2015
-      run: npm config set msvs_version 2015
-    - name: Install dependencies
-      run: npm install
-    - name: Build on Windows64
-      env:
-        ELECTRON: true
-        APP_VERSION_NUMBER: 0.5.9
-      run: npm run prod:win:hq64
-    - name: see directory 64
-      run: ls ./release
-    - name: Upload output file 64
-      uses: actions/upload-artifact@v1
-      with:
-        name: electron-win64
-        path: ./release/红旗直播_1.2.0.exe
-    - name: Build on Windows32
-      env:
-        ELECTRON: true
-        APP_VERSION_NUMBER: 0.5.9
-      run: npm run prod:win:hq32
-    - name: see directory32
-      run: ls ./release
-    - name: Upload output file
-      uses: actions/upload-artifact@v1
-      with:
-        name: electron-win32
-        path: ./release/红旗直播_1.2.0.exe
+  # build_on_win:
+  #   runs-on: windows-2016
+  #   steps:
+  #   - uses: actions/checkout@master
+  #     with:
+  #       ref: electron
+  #   - uses: actions/setup-node@master
+  #     with:
+  #       node-version: 10.16
+  #   - name: install node tools
+  #     run: npm install --global --production windows-build-tools@4.0.0
+  #   - name: install node-gyp
+  #     run: npm install --global node-gyp@latest
+  #   - name: Set node config to use python2.7
+  #     run: npm config set python python2.7
+  #   - name: Set node config to set msvs_version to 2015
+  #     run: npm config set msvs_version 2015
+  #   - name: Install dependencies
+  #     run: npm install
+  #   - name: Build on Windows64
+  #     env:
+  #       ELECTRON: true
+  #       APP_VERSION_NUMBER: 0.5.9
+  #     run: npm run prod:win:hq64
+  #   - name: see directory 64
+  #     run: ls ./release
+  #   - name: Upload output file 64
+  #     uses: actions/upload-artifact@v1
+  #     with:
+  #       name: electron-win64
+  #       path: ./release/红旗直播_1.2.0.exe
+  #   - name: Build on Windows32
+  #     env:
+  #       ELECTRON: true
+  #       APP_VERSION_NUMBER: 0.5.9
+  #     run: npm run prod:win:hq32
+  #   - name: see directory32
+  #     run: ls ./release
+  #   - name: Upload output file
+  #     uses: actions/upload-artifact@v1
+  #     with:
+  #       name: electron-win32
+  #       path: ./release/红旗直播_1.2.0.exe
