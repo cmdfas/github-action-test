@@ -4,7 +4,8 @@ const client = OSS({
     accessKeyId: 'w122A7d2d2NIV7Pf',
     accessKeySecret: 'PO5EIECFaVC4KOWbwyPa7TvZULTPAl',
     bucket: 'wemark',
-    region: 'oss-cn-shenzhen'
+    region: 'oss-cn-shenzhen',
+    timeout: 300
 })
 
 /**
