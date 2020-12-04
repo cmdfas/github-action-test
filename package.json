@@ -24,7 +24,7 @@
         "prod:mac:hq": "node ./build/index.js hongqi production && electron-builder -m",
         "prod:mac:bt": "node ./build/index.js benteng production && electron-builder -m",
         "prod:mac:wmkt": "node ./build/index.js weimaketang production && electron-builder -m",
-        "prod:win:hq64": "node ./build/index.js hongqi production 64 && electron-builder . --publish never",
+        "prod:win:hq64": "node ./build/index.js hongqi production 64 && electron-builder . --publish never && npm run upload",
         "prod:win:bt64": "node ./build/index.js benteng production 64 && electron-builder .",
         "prod:win:wmkt64": "node ./build/index.js weimaketang production 64 && electron-builder .",
         "prod:win:hq32": "node ./build/index.js hongqi production 32 && electron-builder  -w --ia32 --publish never",
