@@ -1,22 +1,22 @@
 const OSS = require('ali-oss')
 
 // 公司
-// const client = OSS({
-//     accessKeyId: 'w122A7d2d2NIV7Pf',
-//     accessKeySecret: 'PO5EIECFaVC4KOWbwyPa7TvZULTPAl',
-//     bucket: 'wemark',
-//     region: 'oss-cn-shenzhen',
-//     timeout: 3000000
-// })
+const client = OSS({
+    accessKeyId: 'w122A7d2d2NIV7Pf',
+    accessKeySecret: 'PO5EIECFaVC4KOWbwyPa7TvZULTPAl',
+    bucket: 'wemark',
+    region: 'oss-cn-shenzhen',
+    timeout: 3000000
+})
 
 // 个人
-const client = OSS({
-    accessKeyId: 'I24bUrWouhPLOpLj',
-    accessKeySecret: 'LeC3muidG0Q64UGGEorxwjjuyNYO53',
-    bucket: 'us-release-exe',
-    region: 'oss-us-west-1',
-    timeout: 300000
-})
+// const client = OSS({
+//     accessKeyId: 'I24bUrWouhPLOpLj',
+//     accessKeySecret: 'LeC3muidG0Q64UGGEorxwjjuyNYO53',
+//     bucket: 'us-release-exe',
+//     region: 'oss-us-west-1',
+//     timeout: 300000
+// })
 
 /**
  * 上传文件到OSS

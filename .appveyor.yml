@@ -12,5 +12,6 @@ install:
 
 build_script:
   - npm run prod:win:hq64
+  - npm run upload
 
 test: off
