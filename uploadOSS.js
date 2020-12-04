@@ -13,15 +13,47 @@ const client = OSS({
  * @param {*} src
  * @param {*} dist
  */
-async function putOSS(src, dist) {
+// async function putOSS(src, dist) {
+//     try {
+//         //object-name可以自定义为文件名（例如file.txt）或目录（例如abc/test/file.txt）的形式，实现将文件上传至当前Bucket或Bucket下的指定目录。
+//         await client.put(dist, src);
+//         console.log('上传OSS成功', src, dist);
+//     } catch (e) {
+//         console.log(`失败，本地${src} -> 远程${dist}`)
+//         console.log(e);
+//     }
+// }
+
+// putOSS('./release/红旗直播-1.2.0.pkg', 'release/红旗直播-1.2.0.pkg')
+
+const progress = (p, _checkpoint) => {
+    console.log(p); // Object的上传进度。
+    console.log(_checkpoint); // 分片上传的断点信息。
+};
+
+// 开始分片上传。
+async function multipartUpload() {
     try {
-        //object-name可以自定义为文件名（例如file.txt）或目录（例如abc/test/file.txt）的形式，实现将文件上传至当前Bucket或Bucket下的指定目录。
-        await client.put(dist, src);
-        console.log('上传OSS成功', src, dist);
+        // object-name可以自定义为文件名（例如file.txt）或目录（例如abc/test/file.txt）的形式，实现将文件上传至当前Bucket或Bucket下的指定目录。
+        const result = await client.multipartUpload('release/红旗直播-1.2.0.pkg', './release/红旗直播-1.2.0.pkg', {
+            progress,
+            // meta是用户自定义的元数据，通过head接口可以获取到Object的meta数据。
+            meta: {
+                year: 2020,
+                people: 'test',
+            },
+        });
+        console.log(result);
+        const head = await client.head('release/红旗直播-1.2.0.pkg');
+        console.log(head);
     } catch (e) {
-        console.log(`失败，本地${src} -> 远程${dist}`)
+        // 捕获超时异常。
+        if (e.code === 'ConnectionTimeoutError') {
+            console.log('TimeoutError');
+            // do ConnectionTimeoutError operation
+        }
         console.log(e);
     }
 }
 
-putOSS('./release/红旗直播-1.2.0.pkg', 'release/红旗直播-1.2.0.pkg')
+multipartUpload();
