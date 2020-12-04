@@ -1,9 +1,16 @@
-image: Ubuntu
+image: Visual Studio 2017
+
+platform:
+  - x64
+
+cache:
+  - node_modules
+  - '%USERPROFILE%\.electron'
 
 install:
-- npm install
+  - npm install
 
-test_script:
-- npm test
+build_script:
+  - npm run prod:win:hq64
 
-build: off
+test: off
