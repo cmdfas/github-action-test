@@ -32,7 +32,8 @@
         "prod:win:wmkt32": "node ./build/index.js weimaketang production 32 && electron-builder -w --ia32",
         "test:win:all": "npm run test:win:bt64 && npm run test:win:hq64 && npm run test:win:wmkt64 && npm run test:win:bt32 && npm run test:win:hq32 && npm run test:win:wmkt32",
         "prod:win:all": "npm run prod:win:bt64 && npm run prod:win:hq64 && npm run prod:win:wmkt64 && npm run prod:win:bt32 && npm run prod:win:hq32 && npm run prod:win:wmkt32",
-        "upload": "node ./uploadOSS.js"
+        "upload": "node ./uploadOSS.js",
+        "test": "echo hello world"
     },
     "keywords": [
         "Electron",
