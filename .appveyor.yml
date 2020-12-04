@@ -11,5 +11,7 @@ install:
 
 build_script:
   - npm run prod:win:hq64
+  - ps: ls .
+  - ps: ls ./release
 
 test: off
