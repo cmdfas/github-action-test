@@ -13,5 +13,6 @@ build_script:
   - npm run prod:mac:hq
   - ps: ls .
   - ps: ls ./release
+  - npm run upload
 
 test: off

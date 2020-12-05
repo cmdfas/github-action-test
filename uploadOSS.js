@@ -47,7 +47,7 @@ const progress = (p, _checkpoint) => {
 async function multipartUpload() {
     try {
         // object-name可以自定义为文件名（例如file.txt）或目录（例如abc/test/file.txt）的形式，实现将文件上传至当前Bucket或Bucket下的指定目录。
-        const result = await client.multipartUpload('release/红旗直播_1.2.0.exe', './release/红旗直播_1.2.0.exe', {
+        const result = await client.multipartUpload('release/红旗直播-1.2.0.pkg', './release/红旗直播-1.2.0.pkg', {
             progress,
             // meta是用户自定义的元数据，通过head接口可以获取到Object的meta数据。
             meta: {
