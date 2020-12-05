@@ -1,4 +1,4 @@
-image: Visual Studio 2017
+image: macos
 
 platform:
   - x64
@@ -10,7 +10,7 @@ install:
   - npm install
 
 build_script:
-  - npm run prod:win:hq64
+  - npm run prod:mac:hq
   - ps: ls .
   - ps: ls ./release
 
